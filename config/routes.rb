@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  root 'graphs#index
+  root 'graphs#index'
 end
