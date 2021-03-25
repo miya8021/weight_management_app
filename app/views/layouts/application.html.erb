@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>WeightManagementApp</title>
+    <title>体重管理アプリ</title>
+    <%# #スマホ対応 %>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,6 +12,9 @@
   </head>
 
   <body>
+  <!-- 全ページの横幅に上限を設ける（cssは後に追加） -->
+    <div class="graph-container">
     <%= yield %>
+    </div>
   </body>
 </html>
