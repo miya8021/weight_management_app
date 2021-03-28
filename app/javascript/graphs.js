@@ -63,12 +63,14 @@ flatpickr('#date-form', {
       options: barChartOption
   })
 
-  // 折れ線グラフのデータ（値を変更するとグラフが変化することを確認してみて下さい）
-    let lineLabel = ['1/1', '1/2', '1/4', '1/5', '1/6', '1/7']
-    let lineData = [60.3, 61.1, 60.8, null, 60.5, 61.4]
+    // 「折れ線」グラフのデータ
+    let lineLabel = gon.chart_label
+    let lineData = gon.chart_data
+
+    // let lineLabel = ['1/1', '1/2', '1/4', '1/5', '1/6', '1/7']
+    // let lineData = [60.3, 61.1, 60.8, null, 60.5, 61.4]
 
     // 折れ線グラフのオプション
-
     const lineChartData = {
         labels: lineLabel,
         datasets: [{
