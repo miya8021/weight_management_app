@@ -3,6 +3,7 @@ class Graph < ApplicationRecord
   # 一人のユーザーが同じ日付のデータを複数記録できないようにする
   validates :date, presence: true, uniqueness: { scope: :user_id }
   validates :weight, presence: true
+
   def self.chart_data(user)
     graphs = user.graphs.order(date: :asc)
     # 記録が無い場合にエラーが出るのを防止

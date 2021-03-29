@@ -8,6 +8,6 @@ class CreateGraphs < ActiveRecord::Migration[6.1]
       t.timestamps
     end
     # 一人のユーザーが同じ日付のデータを複数記録できないようにする
-    add_index :graphs, %i[user_id date], unique: true
+    add_index :graphs, [:user_id, :date], unique: true
   end
 end
