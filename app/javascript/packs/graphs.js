@@ -11,7 +11,7 @@ document.addEventListener('turbolinks:load', () => {
 
     // グラフを描く場所を取得
     const chartWeightContext = document.getElementById("chart-weight").getContext('2d')
-
+    let chartWeight
     // 期間を指定してグラフを描く
     const drawGraph = (from, to) => {
         // from から to までの期間のデータに絞る
@@ -56,11 +56,24 @@ document.addEventListener('turbolinks:load', () => {
             }
         }
 
-        new Chart(chartWeightContext, {
-            type: 'line',
-            data: weightData,
-            options: weightOption
-        })
+        // new Chart(chartWeightContext, {
+        //     type: 'line',
+        //     data: weightData,
+        //     options: weightOption
+        // })
+        if (!chartWeight) {
+            // グラフが存在しないときは，作成する
+            chartWeight = new Chart(chartWeightContext, {
+                type: 'line',
+                data: weightData,
+                options: weightOption
+            })
+        } else {
+            // グラフが存在するときは，更新する
+            chartWeight.data = weightData
+            chartWeight.options = weightOption
+            chartWeight.update()
+        }
     }
 
     // グラフの初期表示
